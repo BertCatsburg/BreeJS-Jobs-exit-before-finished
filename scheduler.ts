@@ -1,7 +1,6 @@
 import Bree from 'bree';
 import {typescript_worker} from "./lib/typescript_worker";
 
-
 (async () => {
     try {
 
@@ -11,7 +10,7 @@ import {typescript_worker} from "./lib/typescript_worker";
                     name: 'HelloWorld',
                     path: typescript_worker,
                     interval: 'every 10 seconds',
-                    worker: {workerData: { name: 'Bert', filename: './jobs/hello_world.ts'}}
+                    worker: {workerData: { filename: './jobs/hello_world.ts'}}
                 }
             ]
         });

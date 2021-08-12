@@ -1,8 +1,8 @@
 {
     "restartable": "rs",
-    "watch": ["src"],
+    "watch": ["src", "jobs"],
     "ext": "ts,json",
-    "ignore": [".git", "node_modules/", "dist/", "data/","src/**/*.spec.ts"],
+    "ignore": [".git", "node_modules/"],
     "exec": "ts-node ./scheduler.ts",
     "env": {
         "DEBUG": ""
