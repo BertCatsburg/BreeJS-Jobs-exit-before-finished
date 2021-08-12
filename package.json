@@ -4,9 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --config nodemon.json"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bree": "^6.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.6.0",
+    "@types/bree": "^6.2.1",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.1.0",
+    "tslib": "^1.14.1",
+    "typescript": "^4.3.5"
+  }
 }

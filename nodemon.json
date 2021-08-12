@@ -1,0 +1,10 @@
+{
+    "restartable": "rs",
+    "watch": ["src"],
+    "ext": "ts,json",
+    "ignore": [".git", "node_modules/", "dist/", "data/","src/**/*.spec.ts"],
+    "exec": "ts-node ./scheduler.ts",
+    "env": {
+        "DEBUG": ""
+    }
+}
