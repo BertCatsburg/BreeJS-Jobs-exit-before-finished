@@ -12,7 +12,10 @@ import {typescript_worker} from "./lib/typescript_worker";
                     interval: 'every 10 seconds',
                     worker: {workerData: { filename: './jobs/hello_world.ts'}}
                 }
-            ]
+            ],
+            workerMessageHandler: (message) => {
+                console.log(message);
+            }
         });
 
         bree.start()
