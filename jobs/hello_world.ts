@@ -1,4 +1,4 @@
-const {workerData, parentPort} = require('worker_threads');
+const {parentPort} = require('worker_threads');
 
 (async () => {
 
