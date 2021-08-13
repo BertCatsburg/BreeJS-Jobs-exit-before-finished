@@ -1,14 +1,16 @@
-(async () => {
+(() => {
+
     const {parentPort, workerData} = require('worker_threads');
     const fs = require('fs');
 
-    const logfile = workerData.logfile;
+    const logfile = parentPort ? workerData.logfile : './hello_world_2_not_a_worker.log';
     const logStream = fs.createWriteStream(logfile, {flags: 'a'});
 
     try {
-        logStream.write('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n');
-        logStream.write('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB\n');
-        logStream.write('CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n');
+        console.log('About to write to logfile');
+        logStream.write('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ' + new Date().toISOString() + '\n');
+        logStream.write('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB ' + new Date().toISOString() + '\n');
+        logStream.write('CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC ' + new Date().toISOString() + '\n');
     } catch (error) {
         console.error('Something wrong in the HelloWorld Job');
         console.error(error);
@@ -16,8 +18,6 @@
         logStream.close();
         if (parentPort) {
             parentPort.postMessage('done');
-        } else {
-            process.exit(0);
         }
     }
 })();
