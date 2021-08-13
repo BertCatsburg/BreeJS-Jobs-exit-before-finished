@@ -9,9 +9,24 @@ import {typescript_worker} from "./lib/typescript_worker";
                 {
                     name: 'HelloWorld',
                     path: typescript_worker,
+                    interval: 'every 600 seconds',
+                    worker: {
+                        workerData: {
+                            filename: './jobs/hello_world.ts'
+                        }
+                    }
+                },
+                {
+                    name: 'HelloWorld2',
+                    path: typescript_worker,
                     interval: 'every 10 seconds',
-                    worker: {workerData: { filename: './jobs/hello_world.ts'}}
-                }
+                    worker: {
+                        workerData: {
+                            filename: './jobs/hello_world_to_file.ts',
+                            logfile: './logs/hello_world_2.log'
+                        }
+                    }
+                },
             ],
             workerMessageHandler: (message) => {
                 console.log(message);
